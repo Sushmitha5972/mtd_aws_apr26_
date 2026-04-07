@@ -1,0 +1,50 @@
+#steps
+1.Sing in AWS Console 
+      -Make sure that your payment  method is enabled 
+2.Search in search box
+"EC2"
+3.You will have EC2 page in side menu bar
+Launch intsance
+4we will have launch an instanc epage
+name-learning-server-1
+ami-amazon linux
+architecture 64 bit x86
+instance type t3.micro(frre tier available)
+key pair:proceed withoput key pair
+network 
+    security group:create security group
+    [x] SSH
+    [x] HTTP
+   -Storage 8gb by default 
+
+
+5.Launchinstance
+6 to check 
+          ec2 menu bar->instances
+7.You will have list of instance having the state "Running"
+8.open the instance 
+            click on the instance id of the instance 
+
+open browser
+terminate the instances
+ec2 side menu bar -instances->?instanxces state->terminate
+successfully teriminatiopn intitated message will get
+to check 
+         ec2 side menu bar->instancve 
+                not there terminated
+
+
+
+
+
+#!/bin/bash
+yum update -y
+yum install -y httpd
+
+systemctl start httpd
+systemctl enable httpd
+
+echo "<h1>Server is up and running!</h1>" > /var/www/html/index.html
+echo "<p>Hello from EC2 Instance - $(hostname -f)</p>" >> /var/www/html/index.html
+echo "<p>Date: $(date)</p>" >> /var/www/html/index.html
+echo "<p>I'm the Greatest of all Time</p>" >> /var/www/html/index.html
